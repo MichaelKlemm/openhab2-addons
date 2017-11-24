@@ -22,6 +22,7 @@ public enum HomekitDeviceType {
     DIMMABLE_LIGHTBULB("DimmableLighting"),
     HUMIDITY_SENSOR("CurrentHumidity"),
     LIGHTBULB("Lighting"),
+    CONTACT("Contact"),
     SWITCH("Switchable"),
     TEMPERATURE_SENSOR("CurrentTemperature"),
     THERMOSTAT("Thermostat"),
