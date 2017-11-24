@@ -21,12 +21,12 @@ import org.osgi.framework.FrameworkUtil;
  */
 public class HomekitSettings {
 
-    private static final String NAME = "openHAB";
     private static final String MANUFACTURER = "openHAB";
-    private static final String SERIAL_NUMBER = "none";
 
     private int port = 9123;
     private String pin = "031-45-154";
+    private String name = "OpenHAB";
+    private String serial = "00:11:22:33:44:55";
     private boolean useFahrenheitTemperature = false;
     private double minimumTemperature = -100;
     private double maximumTemperature = 100;
@@ -46,7 +46,11 @@ public class HomekitSettings {
                 this.port = Integer.parseInt(portString);
             }
         }
+
         this.pin = getOrDefault(properties.get("pin"), this.pin);
+        this.name = getOrDefault(properties.get("name"), this.name);
+        this.serial = getOrDefault(properties.get("serial"), this.serial);
+
         Object useFahrenheitTemperature = properties.get("useFahrenheitTemperature");
         if (useFahrenheitTemperature instanceof Boolean) {
             this.useFahrenheitTemperature = (Boolean) useFahrenheitTemperature;
@@ -82,7 +86,7 @@ public class HomekitSettings {
     }
 
     public String getName() {
-        return NAME;
+        return name;
     }
 
     public String getManufacturer() {
@@ -90,7 +94,7 @@ public class HomekitSettings {
     }
 
     public String getSerialNumber() {
-        return SERIAL_NUMBER;
+        return serial;
     }
 
     public String getModel() {
